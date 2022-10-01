@@ -1,6 +1,6 @@
 {
   "name": "@m-ld/io-js-build",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Base build library for m-ld.io Javascript projects",
   "directories": {
     "bin": "bin"
