@@ -3,7 +3,7 @@
 VERSION=${1?:Version argument required}
 BRANCH=$(git branch --no-color --show-current)
 
-! [[ $BRANCH == 'master' -o $BRANCH == 'main' ]]
+! [[ $BRANCH == 'master' || $BRANCH == 'main' ]]
 NOT_MAIN=$?
 ! [[ $VERSION == pre* ]]
 NOT_PRE=$?
