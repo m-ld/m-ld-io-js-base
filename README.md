@@ -2,11 +2,11 @@
 
 _Base build library for m-ld.io Javascript projects_
 
-Shell scripts & other materials for common build patterns. Intended to be referenced as a GitHub dependency, i.e.
+Shell scripts & other materials for common build patterns. Intended to be referenced as a dev dependency, i.e.
 
 ```
   "devDependencies": {
-    "@m-ld/io-js-build": "github:m-ld/m-ld-io-js-build",
+    "@m-ld/io-js-build": "^0.1.0",
     ...
 ```
 

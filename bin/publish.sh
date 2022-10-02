@@ -3,6 +3,13 @@
 VERSION=${1?:Version argument required}
 BRANCH=$(git branch --no-color --show-current)
 
+# Check the `ver` npm script exists
+if ! npm run ver > /dev/null; then
+  echo publish.sh requires \"ver\": \"echo \$npm_package_version\"
+  exit $?
+fi
+
+# Check that non-pre-releases are on master or main
 ! [[ $BRANCH == 'master' || $BRANCH == 'main' ]]
 NOT_MAIN=$?
 ! [[ $VERSION == pre* ]]
@@ -20,7 +27,7 @@ if [[ $NOT_MAIN -eq 0 ]]; then
 fi
 
 if npm run build; then
-  read -r -p "Version $VERSION, tag $TAG, preid ${PRE_ID:-<none>} OK? [Enter]"
+  read -r -p "Version: $VERSION, dist-tag: $TAG, preid: ${PRE_ID:-<none>} OK? [Enter]"
 
   echo Bumping version
   npm version "$VERSION" --preid "$PRE_ID" --force &&
